@@ -53,6 +53,7 @@ public:
   void closeSession(const std::vector<char> & sessionId) const;
 
   std::string getPropertyString(const std::string &propertyName) const;
+  std::vector<char> getPropertyByteArray(const std::string &propertyName) const;
   void setPropertyString(const std::string &propertyName, const std::string &value) const;
   void setPropertyByteArray(const std::string &propertyName, const std::vector<char> &value) const;
 
@@ -71,6 +72,11 @@ public:
   void removeKeys(const std::vector<char> &sessionId) const;
 
   void setOnEventListener(const CJNIMediaDrmOnEventListener &listener) const;
+  
+  std::map<std::string, std::string> queryKeyStatus(const std::vector<char> &sessionId) const;
+
+  int getSecurityLevel(const std::vector<char> &sessionId) const;
+  int getMaxSecurityLevel();
 };
 
 
